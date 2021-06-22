@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
+import { Route , Switch ,Link} from 'react-router-dom';
+import axios from 'axios';
+
 import './App.css';
 import PlantForm from './PlantForm.js';
 import ListOfPlants from './ListOfPlants.js';
-import axios from 'axios';
+import EditPlant from './EditPlant.js';
+
 
 
 function App() {
 
 // temporary state used to set state
-const [post, setPost] = useState([]);
+// const [post, setPost] = useState([]);
 
 // server error
-const [serverError, setServerError] = useState("");
+// const [serverError, setServerError] = useState("");
 
 // We save the list of plants passed by the user
 const [listofPlants, setListofPlants] =useState([
@@ -36,7 +40,7 @@ const addNewPlant =(plant) =>{
   }
 
   setListofPlants([...listofPlants,newPlant]); // use spread operator to submit the new plant
-  
+  console.log('listofPlants',listofPlants)
 };
 
 
@@ -45,45 +49,64 @@ const addNewPlant =(plant) =>{
   const submitFlowersForm = event =>{
         // console.log('new plant event', plant)
         event.preventDefault();
-
-
-        axios
-        .post("https://reqres.in/api/users", listofPlants)
-        .then(response => {
-          // update temp state with value to display
-          setPost(response.data);
-  
           // clear state, could also use 'initialState' here
           setListofPlants(
-    [  {
-        id: "",
-        nickname: "",
-        species:"",
-        h2oFrequency:"",
-        image:""
-      }]
-        ); 
+            [  {
+                id: "",
+                nickname: "",
+                species:"",
+                h2oFrequency:"",
+                image:""
+              }]
+                ); 
+
+    //     axios
+    //     .post("https://reqres.in/api/users", listofPlants)
+    //     .then(response => {
+    //       // update temp state with value to display
+    //       setPost(response.data);
   
-          // clear any server error
-          setServerError(null);
-        })
-        .catch(err => {
-          // this is where we could create a server error in the form!
-          setServerError("oops! something happened!");
-        });
+    //       // clear state, could also use 'initialState' here
+    //       setListofPlants(
+    // [  {
+    //     id: "",
+    //     nickname: "",
+    //     species:"",
+    //     h2oFrequency:"",
+    //     image:""
+    //   }]
+    //     ); 
+  
+    //       // clear any server error
+    //       setServerError(null);
+    //     })
+    //     .catch(err => {
+    //       // this is where we could create a server error in the form!
+    //       setServerError("oops! something happened!");
+    //     });
     }
     
   return (
     <div className="App">
-      <header className="App-header">
-        Start watering your plants 
-        <PlantForm addNewPlant ={addNewPlant} id ={Date.now()} />
-        <ListOfPlants plants={listofPlants}/>
-      </header>
+      <h1> Edit your plants </h1>
+
+      <Link to="/addplant">Create your list of plants</Link>
+      <br></br>
+      <Link to="/listofplants">Your lovely plants</Link>
+      <br></br>
+      <Link to="/edit"></Link>
+      <Switch>
+            <Route path="/addplant" render ={() =><PlantForm addNewPlant ={addNewPlant} id ={Date.now()}/>}/>
+            <Route path="/edit/:id" render ={() =><EditPlant listofplants={listofPlants} />}/>
+            <Route path="/listofplants" render ={() =><ListOfPlants plants = {listofPlants} />}/>
+            
+      </Switch>
+
       <form onSubmit ={submitFlowersForm}> 
-      <button type="submit"> Submit complete list of plants </button>
-       <pre>{JSON.stringify(post, null, 2)}</pre>
+      {/* <button type="submit"> Submit complete list of plants </button> */}
+       {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
       </form>
+
     </div>
   );
 }

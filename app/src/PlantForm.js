@@ -2,13 +2,15 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import * as yup from 'yup';
 
+
+
 function PlantForm(props) {
 
     // // temporary state used to set state
-    // const [post, setPost] = useState([]);
+    const [post, setPost] = useState([]);
 
     // // server error
-    // const [serverError, setServerError] = useState("");
+    const [serverError, setServerError] = useState("");
 
      // control whether or not the form can be submitted if there are errors in form validation
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -110,27 +112,27 @@ const SUPPORTED_FORMATS = [
 
 
 
-    //     axios
-    //     .post("https://reqres.in/api/users", plant)
-    //     .then(response => {
-    //       // update temp state with value to display
-    //       setPost(response.data);
+        axios
+        .post("https://reqres.in/api/users", plant)
+        .then(response => {
+          // update temp state with value to display
+          setPost(response.data);
   
-    //       // clear state, could also use 'initialState' here
-    //     setPlant({ id:Date.now(), 
-    //       nickname: "" ,
-    //       species:"",
-    //       h2oFrequency:"",
-    //       image:"",
-    //    }); // Clean form once is sumitted 
+          // clear state, could also use 'initialState' here
+        setPlant({ id:Date.now(), 
+          nickname: "" ,
+          species:"",
+          h2oFrequency:"",
+          image:"",
+       }); // Clean form once is sumitted 
   
-    //       // clear any server error
-    //       setServerError(null);
-    //     })
-    //     .catch(err => {
-    //       // this is where we could create a server error in the form!
-    //       setServerError("oops! something happened!");
-    //     });
+          // clear any server error
+          setServerError(null);
+        })
+        .catch(err => {
+          // this is where we could create a server error in the form!
+          setServerError("oops! something happened!");
+        });
 
 
     }
@@ -202,7 +204,7 @@ const SUPPORTED_FORMATS = [
                 <br></br>
                 <br></br> 
 
-                {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
+                <pre>{JSON.stringify(post, null, 2)}</pre>
 
             
                 <button disabled={isButtonDisabled} type="submit"> Add new plant </button>
