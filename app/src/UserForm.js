@@ -7,6 +7,9 @@ import * as yup from 'yup';
 function UserForm(props) {
     // setting state
     const [user, setUser] = useState([]);
+
+
+    
     
 
 
@@ -26,3 +29,9 @@ function UserForm(props) {
 
 
 }
+
+
+
+
+
+export default UserForm
