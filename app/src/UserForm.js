@@ -3,35 +3,16 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 
 
+class UserForm extends React.Component{
+    render() {
+        return (
+            <div className="UserForm">
+                
+        </div>
+    )
 
-function UserForm(props) {
-    // setting state
-    const [user, setUser] = useState([]);
-
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
 
 
-
-
-
-export default UserForm
+export default UserForm;
