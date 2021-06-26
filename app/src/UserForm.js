@@ -1,17 +1,18 @@
 
 import React from 'react';
+import  './App.css';
 
 
-
-//hook format
-
-export default function UserForm() {
+function UserForm() {
     return (
-        <form>
-            <input type="text" placeholder="Email" name="email"/>
-            <input type="password" placeholder='Password' name="password" />
-            <input type="Submit" />
-        </form>
+        <div className="UserForm">
+            <form>
+                <label>Username
+                <input type="text" />
+                </label>
+                </form>
+        </div>
     )
-
 }
+
+export default UserForm;
