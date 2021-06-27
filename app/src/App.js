@@ -102,7 +102,7 @@ const addNewPlant =(plant) =>{
             <Route path="/listofplants" render ={() =><ListOfPlants plants = {listofPlants} />}/>
             
       </Switch>
-
+<UserForm/>
       <form onSubmit ={submitFlowersForm}> 
       {/* <button type="submit"> Submit complete list of plants </button> */}
        {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}

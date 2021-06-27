@@ -5,10 +5,10 @@ import  './App.css';
 
 function UserForm() {
     const [data, setData] = useState({
-        username: '',
         firstName: '',
         lastName: '',
         email: '',
+        username: '',
         password: ''
     });
     const formHandler = event => {
@@ -24,8 +24,42 @@ function UserForm() {
                         value = {data.firstName}//data.
                     name = 'First Name'
                         onChange={formHandler}
-                   <input
-                    type=""
+                    />
+                </label>
+                <br></br>
+                   <label>Last Name:
+                    <input
+                    type="text"
+                    value = {data.lastName}
+                        name='Last Name'
+                        onChange={formHandler}
+                    />
+                </label>
+                <br></br>
+                     <label>Email:
+                    <input
+                    type="text"
+                    value = {data.email}
+                        name='Email'
+                        onChange={formHandler}
+                    />
+                </label>
+                <br></br>
+                <label> Username:
+                    <input
+                    type="text"
+                    value = {data.username}
+                        name='Username'
+                        onChange={formHandler}
+                    />
+                </label>
+                <br></br>
+                <label>Password:
+                    <input
+                    type="text"
+                    value = {data.password}
+                        name='Password'
+                        onChange={formHandler}
                     />
                 </label>
                 </form>
@@ -34,3 +68,4 @@ function UserForm() {
 }
 
 export default UserForm;
+<UserForm/>
