@@ -90,7 +90,7 @@ const addNewPlant =(plant) =>{
   return (
     <div className="App">
       <h1> Edit your plants </h1>
-
+      <UserForm/>
       <Link to="/addplant">Create your list of plants</Link>
       <br></br>
       <Link to="/listofplants">Your lovely plants</Link>
@@ -102,7 +102,7 @@ const addNewPlant =(plant) =>{
             <Route path="/listofplants" render ={() =><ListOfPlants plants = {listofPlants} />}/>
             
       </Switch>
-<UserForm/>
+
       <form onSubmit ={submitFlowersForm}> 
       {/* <button type="submit"> Submit complete list of plants </button> */}
        {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
