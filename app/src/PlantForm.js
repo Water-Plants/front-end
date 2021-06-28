@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 function PlantForm(props) {
 
-    // // temporary state used to set state
+    // // temporary state used to set state000
     const [post, setPost] = useState([]);
 
     // // server error
