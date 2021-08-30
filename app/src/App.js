@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+
 import { Route , Switch ,Link} from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,6 +6,7 @@ import './App.css';
 import PlantForm from './PlantForm.js';
 import ListOfPlants from './ListOfPlants.js';
 import EditPlant from './EditPlant.js';
+import UserForm from './UserForm.js';
 
 
 
@@ -89,7 +90,7 @@ const addNewPlant =(plant) =>{
   return (
     <div className="App">
       <h1> Edit your plants </h1>
-
+      <UserForm/>
       <Link to="/addplant">Create your list of plants</Link>
       <br></br>
       <Link to="/listofplants">Your lovely plants</Link>
